@@ -71,3 +71,4 @@ function createMiniCountdown(targetDate, el) {
 window.addEventListener("beforeunload", () => {
   activeTimers.forEach(id => clearInterval(id));
 });
+

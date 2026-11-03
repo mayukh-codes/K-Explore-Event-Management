@@ -202,3 +202,4 @@ function resetFilters() {
   document.getElementById("sort-select").value = "date-asc";
   renderEvents(EVENTS);
 }
+

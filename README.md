@@ -245,3 +245,4 @@ This project is created for educational purposes as part of a web development el
 ---
 
 > Built with ❤️ using pure HTML, CSS, and JavaScript — no frameworks, no build tools, just web standards.
+

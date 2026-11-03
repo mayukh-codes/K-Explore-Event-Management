@@ -177,3 +177,4 @@ function initCounters() {
     observer.observe(el);
   });
 }
+

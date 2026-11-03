@@ -276,3 +276,4 @@ function getSpotsLeft(event) {
 function getAvailabilityPercent(event) {
   return Math.round((event.registered / event.capacity) * 100);
 }
+

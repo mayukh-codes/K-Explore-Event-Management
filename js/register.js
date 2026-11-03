@@ -246,3 +246,4 @@ function clearHistory() {
     if (typeof showToast === "function") showToast("History cleared.", "info");
   }
 }
+
