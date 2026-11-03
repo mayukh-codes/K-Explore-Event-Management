@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EventSphere — Discover and register for amazing events across India. Technology, arts, music, business and more.">
+  <title>EventSphere — Your Gateway to Unforgettable Events</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    /* Homepage-specific overrides */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .testimonial-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      transition: all 0.25s ease;
+    }
+    .testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .testimonial-stars { color: #FFB300; font-size: 0.9rem; margin-bottom: 0.75rem; }
+    .testimonial-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem; }
+    .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testimonial-author img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-light); }
+    .testimonial-author strong { display: block; font-size: 0.9rem; }
+    .testimonial-author span { font-size: 0.78rem; color: var(--text-muted); }
+    .view-all-wrap { text-align: center; margin-top: 2.5rem; }
+    .bg-surface-2 { background: var(--surface-2); }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVBAR ══════════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <div class="brand-icon"><i class="fas fa-calendar-star"></i></div>
+        <span class="brand-name">EventSphere</span>
+      </a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html"   class="nav-link">Home</a></li>
+        <li><a href="events.html"  class="nav-link">Events</a></li>
+        <li><a href="register.html" class="nav-link">Register</a></li>
+        <li><a href="about.html"   class="nav-link">About</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="register.html" class="btn btn-primary btn-sm">
+          <i class="fas fa-ticket-alt"></i> Get Tickets
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <!-- ══ HERO ════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          🎉 500+ Events Every Month
+        </div>
+        <h1>Discover &amp; Attend<br><span class="text-gradient">Extraordinary Events</span></h1>
+        <p class="hero-sub">Your all-in-one platform to explore, register, and experience the best events across India — from tech conferences to music festivals.</p>
+        <div class="hero-cta">
+          <a href="events.html" class="btn btn-primary btn-lg">
+            <i class="fas fa-search"></i> Explore Events
+          </a>
+          <a href="register.html" class="btn btn-ghost btn-lg">
+            <i class="fas fa-ticket-alt"></i> Register Now
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">50K+</div>
+            <div class="hero-stat-label">Happy Attendees</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">500+</div>
+            <div class="hero-stat-label">Events Listed</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">120+</div>
+            <div class="hero-stat-label">Cities Covered</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-img-wrap">
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=900&q=85" alt="Events happening now">
+        </div>
+        <div class="hero-card-float card-1">
+          <div class="float-icon purple"><i class="fas fa-calendar-check"></i></div>
+          <div class="float-text">
+            <strong>1,543 Registered</strong>
+            <span>TechFest 2026</span>
+          </div>
+        </div>
+        <div class="hero-card-float card-2">
+          <div class="float-icon red"><i class="fas fa-fire"></i></div>
+          <div class="float-text">
+            <strong>Trending Now</strong>
+            <span>Music Fest India</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ STATS STRIP ═══════════════════════════════════════════ -->
+  <div class="stats-strip">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item slide-up">
+          <div class="stat-number" id="stat-1" data-target="50000">0</div>
+          <div class="stat-label">Attendees Served</div>
+        </div>
+        <div class="stat-item slide-up delay-1">
+          <div class="stat-number" id="stat-2" data-target="500">0</div>
+          <div class="stat-label">Events Hosted</div>
+        </div>
+        <div class="stat-item slide-up delay-2">
+          <div class="stat-number" id="stat-3" data-target="120">0</div>
+          <div class="stat-label">Cities Covered</div>
+        </div>
+        <div class="stat-item slide-up delay-3">
+          <div class="stat-number" id="stat-4" data-target="98">0</div>
+          <div class="stat-label">% Satisfaction Rate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FEATURED EVENTS ════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header slide-up">
+        <span class="section-label">Handpicked For You</span>
+        <h2>Featured Events</h2>
+        <p>Curated events you won't want to miss — spanning technology, culture, music, and more.</p>
+      </div>
+      <div class="featured-grid" id="featured-events-grid">
+        <!-- Rendered by JS -->
+      </div>
+      <div class="view-all-wrap slide-up">
+        <a href="events.html" class="btn btn-outline btn-lg mt-3">
+          <i class="fas fa-th-large"></i> View All Events
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CATEGORIES ════════════════════════════════════════════ -->
+  <section class="section bg-surface-2">
+    <div class="container">
+      <div class="section-header slide-up">
+        <span class="section-label">Browse By Interest</span>
+        <h2>Explore Categories</h2>
+        <p>Find events that match your passion — from cutting-edge tech to soulful music.</p>
+      </div>
+      <div class="categories-grid" id="home-categories">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TESTIMONIALS ══════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header slide-up">
+        <span class="section-label">What Attendees Say</span>
+        <h2>Loved by Event-Goers</h2>
+        <p>Real stories from people who found their next favourite experience on EventSphere.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card slide-up">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"EventSphere made registering for TechFest 2026 an absolute breeze. The event info was clear, registration was instant, and the confirmation came right away. Loved it!"</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Arjun Mehta">
+            <div><strong>Arjun Mehta</strong><span>Software Engineer, Bangalore</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card slide-up delay-1">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"I discovered the Creative Arts Summit here and it was one of the best days of my life. Found amazing artists and made incredible memories. Will definitely use EventSphere again!"</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1494790108755-2616b1b6b7ae?w=100&q=80" alt="Priya Nair">
+            <div><strong>Priya Nair</strong><span>Art Enthusiast, Mumbai</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card slide-up delay-2">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"The Startup Pitch Night was incredible. Connected with 3 investors and landed my first angel round! Couldn't have found it without EventSphere. A must-use platform."</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Rahul Sharma">
+            <div><strong>Rahul Sharma</strong><span>Founder, StartupDelta</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA BANNER ═════════════════════════════════════════════ -->
+  <section class="cta-section">
+    <div class="container">
+      <span class="section-label" style="background:rgba(255,255,255,0.2);color:#fff;">Ready to Get Started?</span>
+      <h2 class="slide-up">Don't Miss the Next Big Event</h2>
+      <p class="slide-up delay-1">Join over 50,000 attendees who trust EventSphere to keep them connected to what matters.</p>
+      <div class="hero-cta slide-up delay-2" style="justify-content:center">
+        <a href="events.html" class="btn btn-ghost btn-lg"><i class="fas fa-calendar"></i> Browse Events</a>
+        <a href="register.html" class="btn btn-lg" style="background:#fff;color:var(--primary)"><i class="fas fa-ticket-alt"></i> Register Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ═════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-brand" style="margin-bottom:1rem;display:inline-flex">
+            <div class="brand-icon"><i class="fas fa-calendar-star"></i></div>
+            <span class="brand-name">EventSphere</span>
+          </a>
+          <p>Your trusted platform for discovering and attending the finest events across India. From conferences to concerts, we've got you covered.</p>
+          <div class="social-links" style="margin-top:1.25rem">
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html">Browse Events</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Categories</h4>
+          <ul class="footer-links">
+            <li><a href="events.html?category=technology">Technology</a></li>
+            <li><a href="events.html?category=music">Music</a></li>
+            <li><a href="events.html?category=arts">Arts &amp; Culture</a></li>
+            <li><a href="events.html?category=business">Business</a></li>
+            <li><a href="events.html?category=health">Health &amp; Wellness</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul class="footer-links">
+            <li><a href="#">Help Centre</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Refund Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 EventSphere. Made with <span style="color:var(--accent)">♥</span> in India.</p>
+        <p>Designed for the Elective Web Development Project</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- Scripts -->
+  <script src="js/events-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/countdown.js"></script>
+
+  <script>
+    // Render featured events on homepage
+    document.addEventListener("DOMContentLoaded", () => {
+      const grid = document.getElementById("featured-events-grid");
+      const featured = getFeaturedEvents().slice(0, 3);
+
+      grid.innerHTML = featured.map((ev, i) => {
+        const cat = CATEGORIES.find(c => c.id === ev.category);
+        const spots = getSpotsLeft(ev);
+        const pct = getAvailabilityPercent(ev);
+        return `
+          <article class="event-card slide-up delay-${i}" data-id="${ev.id}">
+            <div class="card-image-wrap">
+              <img src="${ev.image}" alt="${ev.title}" class="card-img" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-category">${cat?.icon || ""} ${cat?.label || ev.category}</span>
+                ${ev.badge ? `<span class="card-badge">${ev.badge}</span>` : ""}
+              </div>
+              <div class="card-countdown mini-countdown" data-date="${ev.date}"></div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title"><a href="event-detail.html?id=${ev.id}">${ev.title}</a></h3>
+              <div class="card-meta">
+                <span><i class="fas fa-calendar-alt"></i> ${formatShortDate(ev.date)}</span>
+                <span><i class="fas fa-clock"></i> ${ev.time}</span>
+              </div>
+              <div class="card-meta">
+                <span><i class="fas fa-map-marker-alt"></i> ${ev.venue.split(",")[0]}</span>
+              </div>
+              <p class="card-desc">${ev.description.substring(0, 110)}…</p>
+              <div class="card-footer">
+                <div class="availability">
+                  <div class="avail-bar">
+                    <div class="avail-fill ${pct > 85 ? "avail-hot" : ""}" style="width:${pct}%"></div>
+                  </div>
+                  <span class="${spots < 30 ? "spots-low" : "spots-ok"}">${spots <= 0 ? "Sold Out" : spots + " left"}</span>
+                </div>
+                <div class="card-price-action">
+                  <span class="card-price">₹${ev.price.toLocaleString("en-IN")}</span>
+                  <a href="event-detail.html?id=${ev.id}" class="btn btn-primary btn-sm">View Details</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      // Mini countdowns
+      grid.querySelectorAll(".mini-countdown").forEach(el => {
+        createMiniCountdown(el.dataset.date, el);
+      });
+
+      // Re-trigger scroll animations for dynamically added elements
+      setTimeout(() => initScrollEffects(), 50);
+
+      // Categories
+      const catGrid = document.getElementById("home-categories");
+      CATEGORIES.filter(c => c.id !== "all").forEach(cat => {
+        const a = document.createElement("a");
+        a.href = `events.html?category=${cat.id}`;
+        a.className = "cat-card slide-up";
+        a.innerHTML = `<span class="cat-icon">${cat.icon}</span><span class="cat-name">${cat.label}</span>`;
+        catGrid.appendChild(a);
+      });
+
+      // Stats counters
+      initCounters();
+    });
+  </script>
+</body>
+</html>

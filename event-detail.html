@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Event details — EventSphere">
+  <title>Event Detail — EventSphere</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+    .breadcrumb a { color: var(--primary); }
+    .breadcrumb span { color: var(--text-light); }
+
+    .organizer-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--surface-2);
+      border-radius: var(--radius-pill);
+      padding: 0.4rem 1rem;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      margin-top: 0.75rem;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+
+    .share-group { display: flex; gap: 0.75rem; margin-top: 0.5rem; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVBAR ══════════════════════════════════════════════════ -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <div class="brand-icon"><i class="fas fa-calendar-star"></i></div>
+        <span class="brand-name">EventSphere</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html"    class="nav-link">Home</a></li>
+        <li><a href="events.html"   class="nav-link">Events</a></li>
+        <li><a href="register.html" class="nav-link">Register</a></li>
+        <li><a href="about.html"    class="nav-link">About</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+        <a href="register.html" class="btn btn-primary btn-sm"><i class="fas fa-ticket-alt"></i> Get Tickets</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <!-- ══ HERO IMAGE ════════════════════════════════════════════ -->
+  <div class="detail-hero">
+    <img src="" alt="" id="detail-hero-img">
+    <div class="detail-hero-overlay">
+      <div class="container">
+        <div class="detail-hero-meta">
+          <span id="detail-category" class="pill" style="border-color:rgba(255,255,255,0.4);color:#fff;background:rgba(255,255,255,0.15)"></span>
+          <span id="detail-badge" class="card-badge" style="display:none"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ MAIN CONTENT ══════════════════════════════════════════ -->
+  <div class="container" id="detail-content">
+    <div class="detail-layout">
+
+      <!-- Main Column -->
+      <main class="detail-main">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <a href="events.html">Events</a>
+          <span>/</span>
+          <span id="detail-title-crumb">Event</span>
+        </nav>
+
+        <h1 id="detail-title">Loading…</h1>
+        <div class="organizer-chip">
+          <i class="fas fa-building"></i>
+          <span id="detail-organizer"></span>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Info Grid -->
+        <div class="detail-info-grid">
+          <div class="info-chip">
+            <i class="fas fa-calendar-alt"></i>
+            <div>
+              <div class="info-chip-label">Date</div>
+              <div class="info-chip-value" id="detail-date"></div>
+            </div>
+          </div>
+          <div class="info-chip">
+            <i class="fas fa-clock"></i>
+            <div>
+              <div class="info-chip-label">Time</div>
+              <div class="info-chip-value" id="detail-time"></div>
+            </div>
+          </div>
+          <div class="info-chip" style="grid-column:span 2">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <div class="info-chip-label">Venue</div>
+              <div class="info-chip-value" id="detail-venue"></div>
+            </div>
+          </div>
+          <div class="info-chip">
+            <i class="fas fa-ticket-alt"></i>
+            <div>
+              <div class="info-chip-label">Ticket Price</div>
+              <div class="info-chip-value" id="detail-price"></div>
+            </div>
+          </div>
+          <div class="info-chip">
+            <i class="fas fa-users"></i>
+            <div>
+              <div class="info-chip-label">Capacity</div>
+              <div class="info-chip-value" id="detail-capacity"></div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Description -->
+        <h2 style="font-size:1.3rem;margin-bottom:1rem">About This Event</h2>
+        <div class="detail-desc" id="detail-description"></div>
+
+        <!-- Tags -->
+        <div class="tags-wrap" id="detail-tags"></div>
+
+        <hr class="section-divider">
+
+        <!-- Share -->
+        <h3 style="font-size:1rem;margin-bottom:0.75rem">Share This Event</h3>
+        <div class="share-group">
+          <button class="btn btn-outline btn-sm" id="share-btn">
+            <i class="fas fa-share-alt"></i> Share
+          </button>
+          <a href="https://twitter.com/intent/tweet" target="_blank" class="btn btn-ghost btn-sm">
+            <i class="fab fa-twitter"></i> Tweet
+          </a>
+          <a href="https://www.linkedin.com/sharing/share-offsite" target="_blank" class="btn btn-ghost btn-sm">
+            <i class="fab fa-linkedin"></i> Share
+          </a>
+        </div>
+      </main>
+
+      <!-- Sidebar -->
+      <aside class="detail-sidebar">
+
+        <!-- Registration Card -->
+        <div class="sidebar-card">
+          <h3>Registration</h3>
+          <div class="price-big" id="detail-price-big">—</div>
+          <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1.25rem">per person · all inclusive</p>
+
+          <!-- Availability -->
+          <div id="detail-availability"></div>
+
+          <a href="register.html" class="btn btn-primary w-full mt-2" id="detail-register-btn" style="justify-content:center">
+            <i class="fas fa-ticket-alt"></i> Register Now
+          </a>
+          <p style="font-size:0.78rem;text-align:center;color:var(--text-muted);margin-top:0.5rem">
+            <i class="fas fa-lock"></i> Secure registration
+          </p>
+        </div>
+
+        <!-- Countdown Card -->
+        <div class="sidebar-card">
+          <h3>Event Starts In</h3>
+          <div class="countdown-wrap" id="event-countdown">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Quick Info -->
+        <div class="sidebar-card">
+          <h3>Quick Info</h3>
+          <div style="display:flex;flex-direction:column;gap:0.65rem;font-size:0.88rem;color:var(--text-muted)">
+            <p><i class="fas fa-check-circle" style="color:#00C853;margin-right:0.5rem"></i>Instant confirmation</p>
+            <p><i class="fas fa-check-circle" style="color:#00C853;margin-right:0.5rem"></i>Secure payment gateway</p>
+            <p><i class="fas fa-check-circle" style="color:#00C853;margin-right:0.5rem"></i>E-ticket on email</p>
+            <p><i class="fas fa-check-circle" style="color:#00C853;margin-right:0.5rem"></i>24/7 support</p>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+  <!-- ══ RELATED EVENTS ═════════════════════════════════════════ -->
+  <section class="section" style="padding-top:0;background:var(--surface-2)" id="related-section">
+    <div class="container">
+      <div class="section-header slide-up" style="margin-bottom:2rem">
+        <span class="section-label">You Might Also Like</span>
+        <h2>Related Events</h2>
+      </div>
+      <div class="events-grid" id="related-events" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ═════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-brand" style="margin-bottom:1rem;display:inline-flex">
+            <div class="brand-icon"><i class="fas fa-calendar-star"></i></div>
+            <span class="brand-name">EventSphere</span>
+          </a>
+          <p>Your trusted platform for discovering and attending the finest events across India.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html">Browse Events</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul class="footer-links">
+            <li><a href="#">Help Centre</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow Us</h4>
+          <div class="social-links" style="flex-wrap:wrap">
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 EventSphere. Made with <span style="color:var(--accent)">♥</span> in India.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="js/events-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/event-detail.js"></script>
+
+  <script>
+    // Sync price to big display & breadcrumb title
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const ev = typeof EVENTS !== "undefined" ? getEventById(params.get("id")) : null;
+      if (ev) {
+        const bigPrice = document.getElementById("detail-price-big");
+        if (bigPrice) bigPrice.textContent = `₹${ev.price.toLocaleString("en-IN")}`;
+        const crumb = document.getElementById("detail-title-crumb");
+        if (crumb) crumb.textContent = ev.title;
+      }
+    });
+  </script>
+</body>
+</html>

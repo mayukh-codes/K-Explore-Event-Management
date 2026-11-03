@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Register for events on EventSphere — quick, secure, and instant confirmation.">
+  <title>Register — EventSphere</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ══ NAVBAR ══════════════════════════════════════════════════ -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <div class="brand-icon"><i class="fas fa-calendar-star"></i></div>
+        <span class="brand-name">EventSphere</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html"    class="nav-link">Home</a></li>
+        <li><a href="events.html"   class="nav-link">Events</a></li>
+        <li><a href="register.html" class="nav-link">Register</a></li>
+        <li><a href="about.html"    class="nav-link">About</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+        <a href="events.html" class="btn btn-outline btn-sm"><i class="fas fa-calendar"></i> Browse Events</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <!-- ══ PAGE HEADER ═══════════════════════════════════════════ -->
+  <header class="page-header">
+    <div class="container">
+      <span class="section-label" style="background:rgba(255,255,255,0.2);color:#fff;margin-bottom:0.75rem;display:inline-block">
+        <i class="fas fa-ticket-alt"></i> Event Registration
+      </span>
+      <h1>Register for an Event</h1>
+      <p>Fill in your details, select your event, and you're all set!</p>
+    </div>
+  </header>
+
+  <!-- ══ REGISTRATION LAYOUT ═══════════════════════════════════ -->
+  <div class="container">
+    <div class="register-layout">
+
+      <!-- Form Column -->
+      <div>
+        <div class="form-card slide-up">
+          <h2>Your Details</h2>
+          <p>All fields marked with <span style="color:var(--accent)">*</span> are required.</p>
+
+          <form id="registration-form" novalidate autocomplete="on">
+
+            <!-- Full Name -->
+            <div class="form-group">
+              <label class="form-label" for="full-name">
+                Full Name <span class="required">*</span>
+              </label>
+              <input type="text" id="full-name" name="full-name" class="form-input"
+                placeholder="e.g. Rahul Sharma" autocomplete="name" required>
+              <span class="error-msg" role="alert"></span>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label class="form-label" for="email">
+                Email Address <span class="required">*</span>
+              </label>
+              <input type="email" id="email" name="email" class="form-input"
+                placeholder="e.g. rahul@example.com" autocomplete="email" required>
+              <span class="error-msg" role="alert"></span>
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+              <label class="form-label" for="phone">
+                Mobile Number <span class="required">*</span>
+              </label>
+              <input type="tel" id="phone" name="phone" class="form-input"
+                placeholder="10-digit Indian mobile number" autocomplete="tel" maxlength="10" required>
+              <span class="error-msg" role="alert"></span>
+            </div>
+
+            <!-- Select Event -->
+            <div class="form-group">
+              <label class="form-label" for="event-select">
+                Select Event <span class="required">*</span>
+              </label>
+              <select id="event-select" name="event" class="form-input" required>
+                <option value="">— Choose an event —</option>
+                <!-- Options populated by JS -->
+              </select>
+              <span class="error-msg" role="alert"></span>
+
+              <!-- Event info preview -->
+              <div id="event-info-box" class="event-info-box"></div>
+            </div>
+
+            <!-- Special Requirements -->
+            <div class="form-group">
+              <label class="form-label" for="requirements">
+                Special Requirements <span style="color:var(--text-light);font-weight:400">(Optional)</span>
+              </label>
+              <textarea id="requirements" name="requirements" class="form-input"
+                rows="3" placeholder="Any dietary needs, accessibility requirements, or other notes…"></textarea>
+            </div>
+
+            <!-- Terms -->
+            <div class="form-group">
+              <div class="form-check">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">
+                  I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+                  I understand that my registration details will be stored securely.
+                </label>
+              </div>
+              <span class="error-msg" role="alert"></span>
+            </div>
+
+            <!-- Newsletter opt-in -->
+            <div class="form-group" style="margin-bottom:0">
+              <div class="form-check">
+                <input type="checkbox" id="newsletter" name="newsletter" checked>
+                <label for="newsletter">
+                  Keep me updated about upcoming events and exclusive offers.
+                </label>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-primary btn-lg w-full mt-3" style="justify-content:center">
+              <i class="fas fa-check-circle"></i> Complete Registration
+            </button>
+          </form>
+        </div>
+
+        <!-- Registration History -->
+        <div class="form-card slide-up delay-1" style="margin-top:1.75rem">
+          <h2 style="font-size:1.2rem;margin-bottom:0.4rem">
+            <i class="fas fa-history" style="color:var(--primary)"></i> Your Registrations
+          </h2>
+          <p style="color:var(--text-muted);font-size:0.88rem;margin-bottom:1.25rem">All registrations are stored locally on your device.</p>
+          <div class="history-table-wrap" id="registration-history">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="reg-sidebar slide-up delay-2">
+
+        <!-- Why Register Card -->
+        <div class="why-card">
+          <h3><i class="fas fa-star" style="margin-right:0.4rem"></i>Why EventSphere?</h3>
+          <div class="why-item">
+            <div class="why-icon">⚡</div>
+            <div class="why-text">
+              <strong>Instant Confirmation</strong>
+              <span>Get your booking confirmed immediately after registration.</span>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🔒</div>
+            <div class="why-text">
+              <strong>Secure &amp; Private</strong>
+              <span>Your data is encrypted and stored securely at all times.</span>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🎟️</div>
+            <div class="why-text">
+              <strong>Easy Access</strong>
+              <span>E-ticket sent straight to your email inbox.</span>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">💬</div>
+            <div class="why-text">
+              <strong>24/7 Support</strong>
+              <span>Our team is always here to help with any queries.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Help Card -->
+        <div class="sidebar-card">
+          <h3>Need Help?</h3>
+          <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem">
+            Having trouble registering? Browse our FAQ or contact our support team.
+          </p>
+          <div style="display:flex;flex-direction:column;gap:0.6rem">
+            <a href="#" class="btn btn-outline btn-sm"><i class="fas fa-question-circle"></i> Visit Help Centre</a>
+            <a href="mailto:support@eventsphere.in" class="btn btn-ghost btn-sm"><i class="fas fa-envelope"></i> Email Support</a>
+          </div>
+        </div>
+
+        <!-- Stats Card -->
+        <div class="sidebar-card" style="background:var(--surface-2)">
+          <h3>Platform Stats</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;text-align:center">
+            <div>
+              <div style="font-size:1.5rem;font-weight:800;color:var(--primary)">50K+</div>
+              <div style="font-size:0.78rem;color:var(--text-muted)">Registrations</div>
+            </div>
+            <div>
+              <div style="font-size:1.5rem;font-weight:800;color:var(--primary)">98%</div>
+              <div style="font-size:0.78rem;color:var(--text-muted)">Satisfaction</div>
+            </div>
+            <div>
+              <div style="font-size:1.5rem;font-weight:800;color:var(--primary)">500+</div>
+              <div style="font-size:0.78rem;color:var(--text-muted)">Events</div>
+            </div>
+            <div>
+              <div style="font-size:1.5rem;font-weight:800;color:var(--primary)">4.9★</div>
+              <div style="font-size:0.78rem;color:var(--text-muted)">Rating</div>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+  <!-- ══ SUCCESS MODAL ═════════════════════════════════════════ -->
+  <div class="modal-backdrop" id="success-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <button class="modal-close" aria-label="Close"><i class="fas fa-times"></i></button>
+      <div class="success-icon"><i class="fas fa-check"></i></div>
+      <h2 id="modal-title">You're Registered! 🎉</h2>
+      <p>Congratulations, <strong class="reg-name"></strong>!</p>
+      <p>Your spot has been confirmed for:</p>
+
+      <div class="booking-details">
+        <div class="row">
+          <span>Booking ID</span>
+          <span class="reg-id" style="font-family:monospace;color:var(--primary)"></span>
+        </div>
+        <div class="row">
+          <span>Event</span>
+          <span class="reg-event"></span>
+        </div>
+        <div class="row">
+          <span>Date</span>
+          <span class="reg-date"></span>
+        </div>
+        <div class="row">
+          <span>Email</span>
+          <span class="reg-email"></span>
+        </div>
+      </div>
+
+      <p style="font-size:0.85rem;color:var(--text-muted)">A confirmation has been recorded. See you at the event! 🚀</p>
+
+      <div style="display:flex;gap:0.75rem;justify-content:center;margin-top:1.5rem">
+        <a href="events.html" class="btn btn-outline btn-sm"><i class="fas fa-calendar"></i> Browse More</a>
+        <button class="btn btn-primary btn-sm modal-close"><i class="fas fa-check"></i> Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ═════════════════════════════════════════════════ -->
+  <footer class="footer" style="margin-top:3rem">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-brand" style="margin-bottom:1rem;display:inline-flex">
+            <div class="brand-icon"><i class="fas fa-calendar-star"></i></div>
+            <span class="brand-name">EventSphere</span>
+          </a>
+          <p>Your trusted platform for discovering and attending the finest events across India.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html">Browse Events</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Refund Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 EventSphere. Made with <span style="color:var(--accent)">♥</span> in India.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="js/events-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>
