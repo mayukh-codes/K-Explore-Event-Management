@@ -2,8 +2,8 @@
 
 > A modern, fully responsive event management website built with HTML5, CSS3, and Vanilla JavaScript.
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-6C63FF?style=for-the-badge&logo=vercel)](https://your-deployment-url.vercel.app)
-[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/your-username/Elective)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-6C63FF?style=for-the-badge&logo=vercel)](https://eventmanagement-mu-five.vercel.app)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/mayukh-codes/K-Explore-Event-Management)
 
 ---
 
